@@ -1,0 +1,21 @@
+# Ignore original large log
+logs/cowrie.json
+
+# Ignore generated files
+results/combined_logs.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
