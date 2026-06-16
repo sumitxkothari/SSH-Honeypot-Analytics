@@ -193,8 +193,8 @@ class SSHHoneypotAnalyzer:
 
         grouped = df.groupby('src_ip').agg({
             'timestamp': 'count',
-            'username': pd.Series.nunique,
-            'password': pd.Series.nunique,
+            'username': 'nunique',
+            'password': 'nunique',
             'success': lambda x: (x == True).sum(),
             'hour': lambda x: x.mode()[0] if not x.mode().empty else -1
         })
