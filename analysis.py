@@ -91,7 +91,7 @@ class SSHHoneypotAnalyzer:
             if response.status_code == 200:
                 data = response.json()
                 return data.get('country', 'Unknown')
-        except:
+        except requests.RequestException:
             pass
         return 'Unknown'
 
