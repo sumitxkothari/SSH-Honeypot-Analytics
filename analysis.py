@@ -170,7 +170,8 @@ class SSHHoneypotAnalyzer:
                      self.df['username'].value_counts().head(8).values)
         axes[0,1].set_title('Most Targeted Usernames')
         success_counts = self.df['success'].value_counts()
-        axes[1,0].pie(success_counts.values, labels=['Failed', 'Success'], autopct='%1.1f%%')
+        labels = success_counts.index.map({True: 'Success', False: 'Failed'})
+        axes[1,0].pie(success_counts.values, labels=labels, autopct='%1.1f%%')
         axes[1,0].set_title('Login Success Rate')
         if 'timestamp' in self.df.columns:
             self.df['hour'] = pd.to_datetime(self.df['timestamp']).dt.hour
